@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	dayMonths := make(map[string] int)  // map = dictionary
+	dayMonths := make(map[string]int) // map = dictionary
 	dayMonths["Jan"] = 31
 	dayMonths["Feb"] = 28
 	dayMonths["Mar"] = 31
@@ -22,6 +22,7 @@ func main() {
 	//fmt.Printf("Days in Janurary :%d\n", dayMonths["Janurary"])  // new item in map
 
 	january := "January"
+	//january = "Jan"
 	days, ok := dayMonths[january]
 	if !ok {
 		fmt.Printf("Can't get days for %s\n", january)
@@ -37,16 +38,25 @@ func main() {
 		fmt.Printf("days: %d\n", days)
 	}
 
-	for key, value := range dayMonths {  //  un-ordered
+	fmt.Printf("===============================\n\n")
+	fmt.Printf("Range over \n\n")
+
+	for key, value := range dayMonths { //  un-ordered
 		fmt.Printf("%s has %d days\n", key, value)
 	}
- 	has31 := 0
-	for _, days := range dayMonths {  //  don't care about the key
+
+	fmt.Printf("===============================\n\n")
+	fmt.Printf("Has 31 days \n\n")
+	has31 := 0
+	for _, days := range dayMonths { //  don't care about the key
 		if days == 31 {
 			has31++
 		}
 	}
 	fmt.Printf("%d months have 31 days\n", has31)
+
+	fmt.Printf("===============================\n\n")
+	fmt.Printf("Delete in Map \n\n")
 
 	fmt.Printf("1 - Number of Months in Year : %d\n", len(dayMonths))
 	delete(dayMonths, "Feb")
@@ -55,8 +65,9 @@ func main() {
 	fmt.Printf("3 - Number of Months in Year : %d\n", len(dayMonths))
 
 	// static map
+	fmt.Printf("===============================\n\n")
 	fmt.Printf("Static Map\n")
-	dayMonths2 := map[string] int{
+	dayMonths2 := map[string]int{
 		"Jan": 31,
 		"Feb": 28,
 		"Mar": 31,
@@ -70,7 +81,7 @@ func main() {
 		"Nov": 30,
 		"Dec": 31,
 	}
-	for key, value := range dayMonths2 {  //  un-ordered
+	for key, value := range dayMonths2 { //  un-ordered
 		fmt.Printf("Static: %s has %d days\n", key, value)
 	}
 
